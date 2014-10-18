@@ -35,15 +35,17 @@ public class MainActivity extends Activity {
 	private List<HashMap<String, Object>> dataSourceList3 = new ArrayList<HashMap<String, Object>>();
 
 	private static String[] labels = { "周边服务", "邻里中心", "智能家居", "社区送餐", "便民缴费",
-			"邻里团购", "邻里活动", "快递信息", "费用充值", "彩票资讯", 
-			"紧急呼救", "一键家政", "老年服务", "医院服务", "干洗服务", 
-			"一键打车", "格瓦拉", "自助银行", "家庭理财", "携程票务", 
-			"网上购物", "人寿保险", "亲子资讯", "家装服务" };
-	private static String[] images = { "icon_nearbyservice", "icon_neighbourhood", "icon_smarthome", "icon_eleme", "icon_payment", 
-		"icon_meituan", "icon_tongquwang", "icon_kuaidi100", "icon_recharge", "icon_lottery", 
-		"icon_emergency", "icon_clean", "icon_elder", "icon_hospital", "icon_drycleaning", 
-		"icon_dididache", "icon_damai", "icon_bank", "icon_finance", "icon_travel", 
-		"icon_shopping", "icon_insurance", "icon_baby", "icon_fix" };
+			"邻里团购", "邻里活动", "快递信息", "费用充值", "彩票资讯", "紧急呼救", "一键家政", "老年服务",
+			"医院服务", "干洗服务", "一键打车", "格瓦拉", "自助银行", "家庭理财", "携程票务", "网上购物",
+			"人寿保险", "亲子资讯", "家装服务" };
+	private static String[] images = { "icon_nearbyservice",
+			"icon_neighbourhood", "icon_smarthome", "icon_eleme",
+			"icon_payment", "icon_meituan", "icon_tongquwang",
+			"icon_kuaidi100", "icon_recharge", "icon_lottery",
+			"icon_emergency", "icon_clean", "icon_elder", "icon_hospital",
+			"icon_drycleaning", "icon_dididache", "icon_damai", "icon_bank",
+			"icon_finance", "icon_travel", "icon_shopping", "icon_insurance",
+			"icon_baby", "icon_fix" };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -105,20 +107,22 @@ public class MainActivity extends Activity {
 			}
 
 		}
+
+		DragGridListener mDragGridListener = new DragGridListener(this);
 		DragGridAdapter mDragAdapter1 = new DragGridAdapter(this,
 				dataSourceList1);
 		mDragGridView1.setAdapter(mDragAdapter1);
-		mDragGridView1.setOnItemClickListener(new DragGridListener(this));
+		mDragGridView1.setOnItemClickListener(mDragGridListener);
 
 		DragGridAdapter mDragAdapter2 = new DragGridAdapter(this,
 				dataSourceList2);
 		mDragGridView2.setAdapter(mDragAdapter2);
-		mDragGridView2.setOnItemClickListener(new DragGridListener(this));
+		mDragGridView2.setOnItemClickListener(mDragGridListener);
 
 		DragGridAdapter mDragAdapter3 = new DragGridAdapter(this,
 				dataSourceList3);
 		mDragGridView3.setAdapter(mDragAdapter3);
-		mDragGridView3.setOnItemClickListener(new DragGridListener(this));
+		mDragGridView3.setOnItemClickListener(mDragGridListener);
 
 		// 实例化小圆点的linearLayout和viewpager
 		pointGroup = (ViewGroup) mainGroup.findViewById(R.id.pointGroup);
